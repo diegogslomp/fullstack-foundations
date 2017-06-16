@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block body %}
+<h4>Restaurants</h4>
+<h3><a href="#">Add new Restaurant</a></h3>
+{% for r in restaurants %}
+    <p><a href="#">{{r.name}}</a></p>
+    <p><a href="#">Edit</a></p>
+    <p><a href="#">Delete</a></p>
+{% endfor %}
+{% endblock %}
