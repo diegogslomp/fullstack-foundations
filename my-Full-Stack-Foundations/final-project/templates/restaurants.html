@@ -1,7 +1,9 @@
 {% extends 'layout.html' %}
 {% block body %}
+
 <h2>Restaurants</h2>
-<!--MESSAGE FLASHING -->
+
+<div class="flash">
 {% with messages = get_flashed_messages() %}
     {% if messages %}
         <ul>
@@ -11,11 +13,13 @@
         </ul>
     {% endif %}
 {% endwith %}
-<!--END MESSAGE FLASHING -->
-<h3><a href="#">Add new Restaurant</a></h3>
-{% for r in restaurants %}
-    <p><a href="#">{{r.name}}</a></p>
-    <p><a href="#">Edit</a></p>
-    <p><a href="#">Delete</a></p>
-{% endfor %}
+</div>
+
+<h3><a href="{{url_for('newRestaurant')}}">Add new Restaurant</a></h3>
+    {% for r in restaurants %}
+        <p><a href="{{url_for('showMenu', restaurant_id=r.id)}}">{{r.name}}</a></p>
+        <p><a href="{{url_for('editRestaurant', restaurant_id=r.id)}}">Edit</a></p>
+        <p><a href="{{url_for('deleteRestaurant', restaurant_id=r.id)}}">Delete</a></p>
+    {% endfor %}
+
 {% endblock %}
