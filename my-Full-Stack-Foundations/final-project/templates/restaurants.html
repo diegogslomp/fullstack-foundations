@@ -16,10 +16,12 @@
 </div>
 
 <h3><a href="{{url_for('newRestaurant')}}">Add new Restaurant</a></h3>
+    {% if restaurants %}
     {% for r in restaurants %}
-        <p><a href="{{url_for('showMenu', restaurant_id=r.id)}}">{{r.name}}</a></p>
+        <p><a href="{{url_for('showRestaurantMenu', restaurant_id=r.id)}}">{{r.name}}</a></p>
         <p><a href="{{url_for('editRestaurant', restaurant_id=r.id)}}">Edit</a></p>
         <p><a href="{{url_for('deleteRestaurant', restaurant_id=r.id)}}">Delete</a></p>
     {% endfor %}
+    {% endif %}
 
 {% endblock %}
