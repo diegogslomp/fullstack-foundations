@@ -1,4 +1,8 @@
 {% extends 'layout.html' %}
 {% block body %}
-    'Delete restaurant {{ restaurant.id }}' page
+    <h3> Are you sure you want to delete {{ restaurant.name}}?</h3>
+    <form action="#" method="post">
+        <input type="submit" value="Delete">
+    </form>
+    <a href="#">Cancel</a>
 {% endblock %}

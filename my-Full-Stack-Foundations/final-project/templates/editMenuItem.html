@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <form action="#" method="post">
+        <p>Name: <input type="text" placeholder="{{ item.name }}" size="30" name="name"></p>
+        <p>Description: <input type="text" placeholder="{{ item.description }}" size="30" name="description"></p>
+        <p>Price: <input type="text" placeholder="{{ item.price }}" size="30" name="price"></p>
+        <p>Course:</p>
+        {% if item.course == 'Appetizer' %}
+            <input type="radio" name="course" value="Appetizer" checked>Appetizer<br>
+        {% else %}
+            <input type="radio" name="course" value="Appetizer">Appetizer<br>
+        {% endif %}
+        {% if item.course == 'Entree' %}
+            <input type="radio" name="course" value="Entree" checked>Entree<br>
+        {% else %}
+            <input type="radio" name="course" value="Entree">Entree<br>
+        {% endif %}
+        {% if item.course == 'Dessert' %}
+            <input type="radio" name="course" value="Dessert" checked>Dessert<br>
+        {% else %}
+            <input type="radio" name="course" value="Dessert">Dessert<br>
+        {% endif %}
+        {% if item.course == 'Beverage' %}
+            <input type="radio" name="course" value="Beverage" checked>Beverage<br>
+        {% else %}
+            <input type="radio" name="course" value="Beverage">Beverage<br>
+        {% endif %}
+        <input type="submit" value="Edit">
+    </form>
+    <a href="#">Cancel</a>
+{% endblock %}

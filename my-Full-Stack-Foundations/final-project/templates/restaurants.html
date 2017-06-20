@@ -1,6 +1,17 @@
 {% extends 'layout.html' %}
 {% block body %}
-<h4>Restaurants</h4>
+<h2>Restaurants</h2>
+<!--MESSAGE FLASHING -->
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+        <ul>
+        {% for message in messages %}
+            <li><strong>{{message}}</strong></li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+<!--END MESSAGE FLASHING -->
 <h3><a href="#">Add new Restaurant</a></h3>
 {% for r in restaurants %}
     <p><a href="#">{{r.name}}</a></p>
