@@ -1,8 +1,21 @@
 {% extends 'layout.html' %}
+
+{% block title_content %} Edit Restaurant {% endblock %}
+
 {% block body %}
-    <form action="{{url_for('editRestaurant',restaurant_id=restaurant.id)}}" method="post">
-        <p>Name: <input type="text" placeholder="{{restaurant.name}}" size="30" name="name"></p>
-        <input type="submit" value="Edit">
+
+    <form class="ui form" action="{{url_for('editRestaurant',restaurant_id=restaurant.id)}}" method="post">
+        <div class="field">
+            <label>Name</label>
+            <input type="text" placeholder="{{restaurant.name}}" name="name">
+        </div>
+        <div class="field">
+            <div class="ui buttons">
+                <input class="ui positive button" type="submit" value="Edit">
+                <div class="or"></div>
+                <a class="ui button" href="{{url_for('showRestaurants')}}">Cancel</a>
+            </div>
+        </div>
     </form>
-    <a href="{{url_for('showRestaurants')}}">Cancel</a>
+
 {% endblock %}

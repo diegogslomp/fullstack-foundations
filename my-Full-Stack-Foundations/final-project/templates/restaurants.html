@@ -1,27 +1,29 @@
 {% extends 'layout.html' %}
+
+{% block title_content %} Restaurants {% endblock %}
+
 {% block body %}
-
-<h2>Restaurants</h2>
-
-<div class="flash">
-{% with messages = get_flashed_messages() %}
-    {% if messages %}
-        <ul>
-        {% for message in messages %}
-            <li><strong>{{message}}</strong></li>
-        {% endfor %}
-        </ul>
-    {% endif %}
-{% endwith %}
-</div>
 
 <h3><a href="{{url_for('newRestaurant')}}">Add new Restaurant</a></h3>
     {% if restaurants %}
-    {% for r in restaurants %}
-        <p><a href="{{url_for('showRestaurantMenu', restaurant_id=r.id)}}">{{r.name}}</a></p>
-        <p><a href="{{url_for('editRestaurant', restaurant_id=r.id)}}">Edit</a></p>
-        <p><a href="{{url_for('deleteRestaurant', restaurant_id=r.id)}}">Delete</a></p>
-    {% endfor %}
+        <div class="ui middle aligned divided list">
+
+        {% for r in restaurants %}
+            <div class="item">
+                <div class="content">
+                        <a href="{{url_for('showRestaurantMenu', restaurant_id=r.id)}}">{{r.name}}</a>
+                    <div class="right floated content">
+                        <div class="ui buttons">
+                            <a class="ui positive button" href="{{url_for('editRestaurant', restaurant_id=r.id)}}">Edit</a>
+                        <div class="or"></div>
+                            <a class="ui negative button" href="{{url_for('deleteRestaurant', restaurant_id=r.id)}}">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
+        </div>
     {% endif %}
 
 {% endblock %}
